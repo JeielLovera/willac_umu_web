@@ -21,8 +21,9 @@ Clonar los archivos en la carpeta deseada por medio de la terminal
 
     $ git clone https://github.com/JeielLovera/willac_umu_web.git
 
-Dentro de la carpeta willac_umu_web abrir la terminal e instalar los archivos de node_modules por medio de npm
+Moverse a la carpeta willac_umu_web e instalar los archivos de node_modules por medio de npm
 
+	$ cd willac_umu_web
     $ npm install
 
 #### Uso de la Web
