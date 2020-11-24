@@ -1,236 +1,80 @@
-# [Paper Kit 2 Angular - Free Bootstrap 4 UI Kit](https://demos.creative-tim.com/paper-kit-2-angular/)
+# WILLAC UMU WEB
+Esta Single Page Application de Willac Umu está desarrollada en Angular 8, sirve como interfaz gráfica para los usuarios finales, los cuales harán uso del sistema para entrenar y predecir el ingreso de los alumnos a las universidades a través de sus notas escolares.
+Este SPA hace uso de los endpoints de WILLAC UMU API para el entrenamiento y predicción de datos, asimismo, utiliza el servicio de almacenamiento de archivos Firebase Storage para la subida y descarga de archivos .csv.
 
-![version](https://img.shields.io/badge/version-1.3.0-blue.svg) [![license][license-badge]][LICENSE] [![GitHub issues open](https://img.shields.io/github/issues/creativetimofficial/paper-kit-2-angular.svg?maxAge=2592000)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aopen+is%3Aissue) [![GitHub closed issues](https://img.shields.io/github/issues-closed-raw/creativetimofficial/paper-kit-2-angular.svg?maxAge=259200)](https://github.com/creativetimofficial/paper-kit-2-angular/issues?q=is%3Aissue+is%3Aclosed) [![Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/E4aHAQy)
-![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/original/opt_pk2_angular_thumbnail.jpg "Paper Kit 2 Angular Free")
+## Requerimientos para la instalación y uso de la página web
 
-Paper Kit 2 Angular is a free Bootstrap 4 UI Kit with pale colors, beautiful typography built for Angular 7.
+#### Softwares
+- Node.js
+- Angular CLI
 
-All components are fully responsive and look great on every screen size. Transitions, shadows, colors, they all resemble the flow you would have using pieces of paper.
+#### Instalación
+Descargar e instalar Node.js la versión LTS
 
-We have created Paper UI Kit kit having pastel colors and paper in mind. It feels light, fresh and easy to go through.
+    https://nodejs.org/es/
 
-Paper Kit 2 Angular is using Ng Bootstrap (https://ng-bootstrap.github.io/#/home), as core framework.
+Instalar Angular CLI a través de la terminal
 
-**Bootstrap 4 support**
+    $ npm install -g @angular/cli
 
-Paper Kit 2 Angular is built on top of Bootstrap 4, so it fully supports it. Most of the elements from the framework are re-designed to resemble sheets of paper and color pastels. If the are elements that we have not touched, they will gracefully fall back to the Bootstrap 4 default.
+Clonar los archivos en la carpeta deseada por medio de la terminal
 
-## Table of Contents
+    $ git clone https://github.com/JeielLovera/willac_umu_web.git
 
-* [Versions](#versions)
-* [Demo](#demo)
-* [Quick Start](#quick-start)
-* [Documentation](#documentation)
-* [File Structure](#file-structure)
-* [Browser Support](#browser-support)
-* [Resources](#resources)
-* [Reporting Issues](#reporting-issues)
-* [Technical Support or Questions](#technical-support-or-questions)
-* [Licensing](#licensing)
-* [Useful Links](#useful-links)
+Dentro de la carpeta willac_umu_web abrir la terminal e instalar los archivos de node_modules por medio de npm
 
+    $ npm install
 
-## Versions
+#### Uso de la Web
+Teniendo ya los archivos de node_modules descargados, se puede dar inicio a la ejecución de la aplicación desde la terminal
 
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/html.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-kit-2)
-[<img src="https://s3.amazonaws.com/creativetim_bucket/github/angular.png" width="60" height="60" />](https://www.creative-tim.com/product/paper-kit-2-angular)
+    $ ng serve
+    
 
+## Archivos core
+#### upload.service.ts
+Contiene todas las funciones para el uso de los endpoints del API de Willac Umu y el servicio de almacenamiento de archivos de FirebaseStorage.
 
-| HTML | Angular |
-| --- | --- |
-| ![Paper Kit 2 HTML](https://s3.amazonaws.com/creativetim_bucket/products/61/opt_pk2_thumbnail.jpg) | ![Paper Kit 2 Angular](https://s3.amazonaws.com/creativetim_bucket/products/65/opt_pk2_angular_thumbnail.jpg)
+#### training.component.ts
+Contiene las funciones para la selección y subida de archivos .csv, como también la funciones de entrenamiento haciendo uso del servicio de upload.service.ts
 
-## Demo
+#### predict.component.ts
+Contiene las funciones para la selección y subida de archivos .csv, como también la funciones de predicción haciendo uso del servicio de upload.service.ts
 
-- [Start page](https://demos.creative-tim.com/paper-kit-2-angular/home)
-- [Landing Page](https://demos.creative-tim.com/paper-kit-2-angular/landing)
-- [Register Page](https://demos.creative-tim.com/paper-kit-2-angular/signup)
-- [Profile Page](https://demos.creative-tim.com/paper-kit-2-angular/user-profile)
-
-[View More](https://demos.creative-tim.com/paper-kit-2-angular/).
-
-
-## Quick start
-
-Quick start options:
-
-- [Download from Github](https://github.com/creativetimofficial/pk2-angular.git).
-- [Download from Creative Tim](https://www.creative-tim.com/product/paper-kit-2-angular).
-- Clone the repo: `git clone https://github.com/creativetimofficial/pk2-angular.git`.
-
-
-## Documentation
-
-Once you download the archive, you will be able find a tutorial page inside it explaining how to start using it. You can also check the [documentation online](https://demos.creative-tim.com/paper-kit-2-angular/documentation/tutorial).
-
-## File Structure
-
-Within the download you'll find the following directories and files:
-
+## Estructura de archivos
 ```
-paper-kit-2-angular
-├── CHANGELOG.md
-├── ISSUE_TEMPLATE.md
-├── LICENSE.md
-├── README.md
-├── angular.json
-├── documentation
-│   ├── css
-│   ├── js
-│   └── tutorial-components.html
-├── e2e
-├── karma.conf.js
-├── package-lock.json
-├── package.json
-├── protractor.conf.js
+willac_umu_web
+├──e2e
 ├── src
-│   ├── app
-│   │   ├── app.component.html
-│   │   ├── app.component.scss
-│   │   ├── app.component.spec.ts
-│   │   ├── app.component.ts
-│   │   ├── app.module.ts
-│   │   ├── app.routing.ts
-│   │   ├── components
-│   │   │   ├── basicelements
-│   │   │   │   ├── basicelements.component.html
-│   │   │   │   ├── basicelements.component.scss
-│   │   │   │   ├── basicelements.component.spec.ts
-│   │   │   │   └── basicelements.component.ts
-│   │   │   ├── components.component.html
-│   │   │   ├── components.component.ts
-│   │   │   ├── components.module.ts
-│   │   │   ├── modal
-│   │   │   │   ├── modal.component.html
-│   │   │   │   ├── modal.component.scss
-│   │   │   │   ├── modal.component.spec.ts
-│   │   │   │   └── modal.component.ts
-│   │   │   ├── navigation
-│   │   │   │   ├── navigation.component.html
-│   │   │   │   ├── navigation.component.scss
-│   │   │   │   ├── navigation.component.spec.ts
-│   │   │   │   └── navigation.component.ts
-│   │   │   ├── notification
-│   │   │   │   ├── notification.component.html
-│   │   │   │   ├── notification.component.scss
-│   │   │   │   ├── notification.component.spec.ts
-│   │   │   │   └── notification.component.ts
-│   │   │   ├── nucleoicons
-│   │   │   │   ├── nucleoicons.component.html
-│   │   │   │   ├── nucleoicons.component.scss
-│   │   │   │   ├── nucleoicons.component.spec.ts
-│   │   │   │   └── nucleoicons.component.ts
-│   │   │   └── typography
-│   │   │       ├── typography.component.html
-│   │   │       ├── typography.component.scss
-│   │   │       ├── typography.component.spec.ts
-│   │   │       └── typography.component.ts
-│   │   ├── home
-│   │   │   ├── home.component.html
-│   │   │   ├── home.component.scss
-│   │   │   ├── home.component.spec.ts
-│   │   │   ├── home.component.ts
-│   │   │   └── home.module.ts
-│   │   ├── landing
-│   │   │   ├── landing.component.html
-│   │   │   ├── landing.component.scss
-│   │   │   ├── landing.component.spec.ts
-│   │   │   └── landing.component.ts
-│   │   ├── profile
-│   │   │   ├── profile.component.html
-│   │   │   ├── profile.component.scss
-│   │   │   ├── profile.component.spec.ts
-│   │   │   └── profile.component.ts
-│   │   ├── shared
-│   │   │   ├── footer
-│   │   │   │   ├── footer.component.html
-│   │   │   │   ├── footer.component.scss
-│   │   │   │   ├── footer.component.spec.ts
-│   │   │   │   └── footer.component.ts
-│   │   │   └── navbar
-│   │   │       ├── navbar.component.html
-│   │   │       ├── navbar.component.scss
-│   │   │       ├── navbar.component.spec.ts
-│   │   │       └── navbar.component.ts
-│   │   └── signup
-│   │       ├── signup.component.html
-│   │       ├── signup.component.scss
-│   │       ├── signup.component.spec.ts
-│   │       └── signup.component.ts
-│   ├── assets
-│   │   ├── css
-│   │   ├── fonts
-│   │   ├── img=
-│   │   └── sass
-│   │       ├── paper-kit
-│   │       └── paper-kit.scss
-│   ├── environments
-│   ├── favicon.ico
-│   ├── index.html
-│   ├── main.ts
-│   ├── polyfills.ts
-│   ├── styles.scss
-│   ├── test.ts
-│   ├── tsconfig.app.json
-│   ├── tsconfig.spec.json
-│   └── typings.d.ts
+│   ├── app
+│   │   ├── app.component.html
+│   │   ├── app.component.scss
+│   │   ├── app.component.ts
+│   │   ├── app.module.ts
+│   │   ├── app.routing.ts
+│   │   ├── components
+│   │   ├── examples
+│   │   ├── pages
+│   │   │    ├── langing-page
+│   │   │    │       ├── landing-page.component.html
+│   │   │    │       └── landing-page.component.ts
+│   │   │    ├── training
+│   │   │    │       ├── training.component.html
+│   │   │    │       └── training.component.ts
+│   │   │    └── predict
+│   │   │    │       ├── preditc.component.html
+│   │   │    │       └── predict.component.ts
+│   │   ├── services
+│   │   └── shared
+│   ├── assets
+│   ├── environments
+│   ├── index.html
+│   ├── main.ts
+│   ├── polyfills.ts
+│   ├── styles.scss
+│   ├── tsconfig.app.json
+├── .gitignore
+├── README.md
 ├── tsconfig.json
 └── tslint.json
-
 ```
-## Browser Support
-
-At present, we officially aim to support the last two versions of the following browsers:
-
-<img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/chrome.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/firefox.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/edge.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/safari.png" width="64" height="64"> <img src="https://s3.amazonaws.com/creativetim_bucket/github/browser/opera.png" width="64" height="64">
-
-
-## Resources
-- [Live Preview](https://demos.creative-tim.com/paper-kit-2-angular/)
-- Download Page: https://www.creative-tim.com/product/paper-kit-2-angular
-- Documentation is [here](https://demos.creative-tim.com/paper-kit-2-angular/documentation/tutorial)
-- License Agreement: https://www.creative-tim.com/license
-- Support: https://www.creative-tim.com/contact-us
-- Issues: [Github Issues Page](https://github.com/creativetimofficial/paper-kit-2-angular/issues)
-
-## Reporting Issues
-We use GitHub Issues as the official bug tracker for the Paper Kit 2 Angular. Here are some advices for our users that want to report an issue:
-
-1. Make sure that you are using the latest version of the Paper Kit 2 Angular. Check the CHANGELOG from your dashboard on our [website](https://www.creative-tim.com/).
-2. Providing us reproducible steps for the issue will shorten the time it takes for it to be fixed.
-3. Some issues may be browser specific, so specifying in what browser you encountered the issue might help.
-
-## Technical Support or Questions
-
-If you have questions or need help integrating the product please [contact us](https://www.creative-tim.com/contact-us) instead of opening an issue.
-
-## Licensing
-
-- Copyright 2018 Creative Tim (https://www.creative-tim.com)
-- Creative Tim [license](https://www.creative-tim.com/license)
-
-## Useful Links
-
-- [More products](https://www.creative-tim.com/bootstrap-themes) from Creative Tim
-
-- [Tutorials](https://www.youtube.com/channel/UCVyTG4sCw-rOvB9oHkzZD1w)
-
-- [Freebies](https://www.creative-tim.com/bootstrap-themes/free) from Creative Tim
-
-- [Affiliate Program](https://www.creative-tim.com/affiliates/new) (earn money)
-
-##### Social Media
-
-Twitter: <https://twitter.com/CreativeTim>
-
-Facebook: <https://www.facebook.com/CreativeTim>
-
-Dribbble: <https://dribbble.com/creativetim>
-
-Google+: <https://plus.google.com/+CreativetimPage>
-
-Instagram: <https://instagram.com/creativetimofficial>
-
-[CHANGELOG]: ./CHANGELOG.md
-[LICENSE]: ./LICENSE.md
-[license-badge]: https://img.shields.io/badge/license-MIT-blue.svg
