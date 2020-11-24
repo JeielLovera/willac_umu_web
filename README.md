@@ -65,6 +65,7 @@ willac_umu_web
 │   │   │    │       ├── preditc.component.html
 │   │   │    │       └── predict.component.ts
 │   │   ├── services
+│   │        └── upload.service.ts
 │   │   └── shared
 │   ├── assets
 │   ├── environments
