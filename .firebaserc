@@ -1,0 +1,11 @@
+{
+  "targets": {
+    "willacumufiles": {
+      "hosting": {
+        "pk2-angular": [
+          "willacumufiles"
+        ]
+      }
+    }
+  }
+}

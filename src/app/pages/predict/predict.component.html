@@ -1,0 +1,44 @@
+<div class="wrapper">
+    <div class="page-header" style="background-image: url('./assets/img/datos/cuzco.png');">
+        <div class="filter"></div>
+            <div class="container">
+                <div class="row">
+                    <div class="col-lg-8 col-sm-6 mr-auto ml-auto">
+                      <div class="card card-train">
+                          <h3 class="title">Agrega un archivo para la predicción</h3>                          
+                          <form class="register-form">
+                            <input style="display: none" type="file" (change) = "onFileSelected($event)" #inputoculto>
+                            <div class="row">
+                                <div class="col-lg-3">
+                                    <button (click) ="inputoculto.click()" class="btn btn-outline-danger btn-round">Subir archivo</button>
+                                </div>
+                                <!--aparece cuando fileSeleccionado sea diferente de null-->
+                                <div class="col-sm-5 labelfile">
+                                    <span class="">
+                                        <i class="fa fa-file-text fa" ></i> {{fileSeleccionado.name}}
+                                    </span>
+                                </div>                              
+                            </div>
+
+                            <!---------------------BOTON ENTREMANIENTO-------------------------------->
+                            <button *ngIf="state==0" (click)="Predict()" class="btn btn-danger btn-center btn-round">Predecir</button>
+                                <!--aparece cuando le dio click al boton de entrenamiento-->
+                            <div class="d-flex justify-content-center" >
+                                <img *ngIf="state==1" src="./assets/img/datos/llamatraining.gif" alt="Rounded Image" class="img-rounded img-responsive" style="width: 70%">
+                                <img *ngIf="state==2" src="./assets/img/datos/trainingllama2.gif" alt="Rounded Image" class="img-rounded img-responsive" style="width: 70%">
+                            </div>
+                            <a *ngIf="state==2" [href]="fileUrl" class="btn btn-danger btn-siguiente btn-round" >Descargar</a>
+                            <div *ngIf="noTraining==true" class="alert alert-danger alert-dismissible fade show" role="alert">
+                                No puedes predecir sin antes <strong>entrenar a Willac Umu</strong>
+                                <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            
+                          </form>
+                      </div>
+                    </div>
+                </div>
+            </div>
+    </div>
+</div>
