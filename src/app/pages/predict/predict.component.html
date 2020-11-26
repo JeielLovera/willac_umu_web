@@ -5,7 +5,12 @@
                 <div class="row">
                     <div class="col-lg-8 col-sm-6 mr-auto ml-auto">
                       <div class="card card-train">
-                          <h3 class="title">Agrega un archivo para la predicción</h3>                          
+                          <h3 class="title">Agrega un archivo para la predicción</h3>    
+                          <p class="description-text">
+                              Con Willac Umu, solo es necesario brindar las notas actuales de tus alumnos para que el sistema pueda
+                              predecir si ingresarán a las universidades escogidas. Sirvase a descargar el formato de archivo a subir
+                              con el botón de la parte inferior.
+                          </p>                          
                           <form class="register-form">
                             <input style="display: none" type="file" (change) = "onFileSelected($event)" #inputoculto>
                             <div class="row">
@@ -19,6 +24,9 @@
                                     </span>
                                 </div>                              
                             </div>
+
+                            <!---------------------BOTON FORMATO-------------------------------->
+                            <button type="button" class="btn btn-danger btn-center btn-round" (click)="downloadFormat()">Descargar Formato</button>
 
                             <!---------------------BOTON ENTREMANIENTO-------------------------------->
                             <button *ngIf="state==0" (click)="Predict()" class="btn btn-danger btn-center btn-round">Predecir</button>

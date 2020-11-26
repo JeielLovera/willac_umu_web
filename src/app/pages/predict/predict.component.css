@@ -42,3 +42,8 @@ text-align: center; }
   background-color: transparent;
   color: #f5593d;  
 }
+
+.description-text {
+  font-size: medium;
+  color: black;
+}

@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UploadService } from '../../services/upload.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-training',
@@ -10,20 +11,18 @@ export class TrainingComponent implements OnInit {
   test : Date = new Date();
   focus;
   focus1;
-
+  formatFileUrl: string
   fileSeleccionado: File = null;
   imagename: string;
   state: number = 0;
-  imgUrl: any;
 
-  constructor( public uploadService: UploadService) { 
+  constructor( public uploadService: UploadService, @Inject(DOCUMENT) private document: Document ) { 
     
   }
 
   onFileSelected( event) {
     this.fileSeleccionado = <File> event.target.files[0];
   }
-
 
   Training(){
     this.state = 1;
@@ -36,6 +35,10 @@ export class TrainingComponent implements OnInit {
         });
       });
     }); 
+  }
+
+  downloadFormat(): void{
+    this.document.location.href = "https://firebasestorage.googleapis.com/v0/b/willacumufiles.appspot.com/o/files%2Fformat_file.csv?alt=media&token=767b17d8-2790-4859-a8d2-60e835f7c4a8";
   }
 
   ngOnInit(): void {

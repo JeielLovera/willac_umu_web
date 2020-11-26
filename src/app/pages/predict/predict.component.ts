@@ -1,5 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Inject, OnInit } from '@angular/core';
 import { UploadService } from '../../services/upload.service';
+import { DOCUMENT } from '@angular/common';
 
 @Component({
   selector: 'app-predict',
@@ -12,7 +13,7 @@ export class PredictComponent implements OnInit {
   state: number = 0;
   noTraining: boolean
 
-  constructor( private uploadService: UploadService) {
+  constructor( private uploadService: UploadService, @Inject(DOCUMENT) private document: Document ) {
     this.noTraining = false;
     this.state = 0;
    }
@@ -34,7 +35,7 @@ export class PredictComponent implements OnInit {
       this.uploadService.upload(this.fileSeleccionado, this.fileSeleccionado.name).then( () => {
         this.uploadService.getDataToPredict(this.fileSeleccionado.name).subscribe( (response:any) => {
           this.uploadService.postPrediction(id_wb, response).subscribe( (resp:any) => {
-            this.uploadService.download(resp).subscribe( (r:any) => { 
+            this.uploadService.download(resp).subscribe( (r:any) => {
               this.fileUrl = r;
               this.state = 2
               this.noTraining = false;
@@ -50,6 +51,10 @@ export class PredictComponent implements OnInit {
       return;
     }
     
+  }
+  
+  downloadFormat(): void{
+    this.document.location.href = "https://firebasestorage.googleapis.com/v0/b/willacumufiles.appspot.com/o/files%2Fformat_prediction_file.csv?alt=media&token=2928561c-3d39-45d5-91e5-6935046bbc7a";
   }
 
 }

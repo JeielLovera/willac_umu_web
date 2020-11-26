@@ -5,7 +5,12 @@
                 <div class="row">
                     <div class="col-lg-8 col-sm-6 mr-auto ml-auto">
                       <div class="card card-train">
-                          <h3 class="title">Agrega un archivo para el entrenamiento</h3>                          
+                          <h3 class="title">Agrega un archivo para el entrenamiento</h3>
+                          <p class="description-text">
+                            Con Willac Umu puedes entrenar tu red para predecir si el alumno ingresará hasta a dos universidades. Para ello, se le 
+                            debe proporcionar al sistema los datos de un conjunto de alumnos con el objetivo de calibrar la red. Sirvase a descargar 
+                            el formato de archivo a subir con el botón de la parte inferior.
+                          </p>                          
                           <form class="register-form">
                             <input style="display: none" type="file" (change) = "onFileSelected($event)" #inputoculto>
                             <div class="row">
@@ -20,15 +25,17 @@
                                 </div>                              
                             </div>
 
+                            <!---------------------BOTON FORMATO-------------------------------->
+                            <button type="button" class="btn btn-danger btn-center btn-round" (click)="downloadFormat()">Descargar Formato</button>
+                            
                             <!---------------------BOTON ENTREMANIENTO-------------------------------->
                             <button *ngIf="state==0" class="btn btn-danger btn-center btn-round" (click)=Training()>Entrenar</button>
                                 <!--aparece cuando le dio click al boton de entrenamiento-->
                             <div class="d-flex justify-content-center" >
                                 <img *ngIf="state==1" src="./assets/img/datos/llamatraining.gif" alt="Rounded Image" class="img-rounded img-responsive" style="width: 70%">
                                 <img *ngIf="state==2" src="./assets/img/datos/trainingllama2.gif" alt="Rounded Image" class="img-rounded img-responsive" style="width: 70%">
-                            
                             </div>
-                            <a *ngIf="state==2" routerLink="../predict" class="btn btn-danger btn-siguiente btn-round" >Predecir</a>
+                            <a *ngIf="state==2" routerLink="../predict" class="btn btn-danger btn-siguiente btn-round">Predecir</a>
                             <!--------------------TABLE--------------------->   
                             
                           </form>

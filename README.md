@@ -29,7 +29,7 @@ Moverse a la carpeta willac_umu_web e instalar los archivos de node_modules por 
 #### Uso de la Web
 Teniendo ya los archivos de node_modules descargados, se puede dar inicio a la ejecución de la aplicación desde la terminal
 
-    $ ng serve
+    $ ng serve -o
     
 
 ## Archivos core
